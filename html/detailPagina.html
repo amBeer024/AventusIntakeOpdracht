@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/styleSheet.css" />
+  </head>
+
+  <body onload="showMovieDetails()">
+    <div class="mainContent">
+      <header>
+        <ul>
+          <li><a href="overzichtPagina.html">Home</a></li>
+          <li><a href="contactPagina.html">Contact</a></li>
+          <h1>YazaKuzi</h1>
+        </ul>
+      </header>
+      <div id="movie">
+        <!--hier wordt de informatie van de geklikte film ingeladen  -->
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    function showMovieDetails() {
+      if (sessionStorage["movie"]) {
+        let movie = sessionStorage.getItem("movie");
+        document.getElementById("movie").innerHTML = movie;
+        let number = sessionStorage.getItem("movieNumber");
+        document.getElementById("storyline" + number).style.display = "block";
+      } else {
+        location.href = "overzichtPagina.html";
+      }
+    }
+  </script>
+</html>
